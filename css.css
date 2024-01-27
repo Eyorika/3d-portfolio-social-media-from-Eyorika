@@ -1,0 +1,124 @@
+:root{
+    /* the root variable name are driven from Amharic's sounds*/
+    --brand-kelem: #f5ab0b;
+    --brand-kelem2: #d6a232;
+    --jerba-girgida: #0da8f0;
+    --girdoshi-kelem1: #e7e5e5;
+    --girdoshi-kelem2: #4d4747;
+    --qat: rgba(255, 255, 255, 0.12);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+
+}
+
+body{
+    background-color: var(--jerba-girgida);
+}
+
+.container {
+    position: absolute;
+    transform: translate(-50% , 50%);
+    top: 45%;
+    left: 50%;
+
+}
+.container::before{
+    content: "";
+    position: absolute;
+    height: 280px;
+    width: 280px;
+    background: radial-gradient(var(--brand-kelem), (var(--brand-kelem2)));
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+}
+
+.card{
+    height: 380px;
+    width: 350px;
+    position: relative;
+    border: 1px solid var(--girdoshi-kelem1);
+}
+
+.front, .back{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border: 2px solid var(--girdoshi-kelem1);
+    border-radius: 15px;
+    background-color: var(--qat);
+    border: 2px solid var(--qat);
+    backdrop-filter: blur(9px);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: 4s;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.front {
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.front img{
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    border: 10px solid var(--girdoshi-kelem2);
+}
+
+.back{
+    justify-content: space-around;
+    transform: rotateY(180deg);
+}
+.details{
+    text-align: center;
+}
+
+h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: aliceblue;
+
+}
+
+span{
+    font-size: 1rem;
+    color: var(--brand-kelem2);
+}
+
+.icon{
+    display: grid;
+    place-items: center;
+    height: 65px;
+    width: 65px;
+    background-color: var(--brand-kelem2);
+    font-size: 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--girdoshi-kelem1);
+}
+.icon:hover{
+    transform: translateY(-20px);
+    background-color: var(--girdoshi-kelem1);
+    color: var(--brand-kelem);
+}
+
+.card:hover .back{
+    transform: rotateY(0deg);
+}
+
+.card:hover .front{
+    transform: rotateY(-180deg);
+}
